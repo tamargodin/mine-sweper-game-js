@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <title>Minesweeper💣💣🚩🚩</title>
+    <link rel="stylesheet" href="gameDes.css">
+    <script src="game.js"></script>
+
+</head>
+<body>
+    <h1>💣Mines: <span id="mines-count">0</span></h1>
+    <div id="board">
+    </div>
+     <span id="6"></span>
+    <br>
+<!-- OPEN window  -->
+<div class="popup">
+    <img id ="name" src="img/title (2).png">
+    <br><br><br>
+    <form method="get">
+        <input type="text" name="first name" placeholder="enter name" pattern="\w{}" id="name1"/>
+        <button type="submit" class="button"
+        onclick="n()"
+        >UPDATE</button></form>
+        <br><br><br>
+        <h1>🚩 Levels</h1>
+<!-- <div id="choose"> -->
+    <button   class="choose" onclick="startGame(20,6,6)" >Easy</button>
+    <button  class="choose" onclick="startGame(30,11,11)">Medium</button>
+    <button class="choose" onclick="startGame(50,16,16)" >  Hard  </button>
+<!-- </div> -->
+    <br><br>
+    <button id ="r">🚩Rulse</button>  
+    <div class="popR1">
+        <button id="close1">&times;</button>
+        <h2>💣 Rulse💣</h2>
+         The purpose of the game is to open all the cells of the board which do not contain a bomb. <br>You lose if you set off a bomb cell.<br>
+
+            Every non-bomb cell you open will tell you the total number of bombs in the eight neighboring cells.<br> Once you are sure that a cell contains a bomb, you can right-click to put a flag it on it as a reminder. <br>Once you have flagged all the bombs around an open cell, you can quickly open the remaining non-bomb cells by shift-clicking on the cell.
+            
+            <br>To start a new game (abandoning the current one), just click on the yellow face button.</p>
+    </div>
+
+
+</div>
+<div class="over">
+    <img src="img/BOOM (3).png">
+</div>
+<div class="end">
+    <p id="win"></p>
+    <a href="game.html"><button id="newGame">Play again</button></a>
+</div>
+<div id="all">
+    <div id="container">
+      <div id="animate">
+      </div>
+    </div>
+    </div>
+        <audio id="audio">
+            <source src="DarkRedWine.ogg" type="audio/ogg">
+        </audio>
+        <audio id="click">
+            <source src="click.mp3" type="audio/mp3">
+        </audio>
+        <audio id="loose">
+            <source src="loose.mp3" type="audio/mp3">
+        </audio>
+        <audio id="clap">
+            <source src="win.mp3" type="audio/mp3">
+        </audio>
+        <audio id="boom">
+            <source src="boom.mp3" type="audio/mp3">
+        </audio>
+        <audio id="confetti">
+            <source src="confetti.ogg" type="audio/mp3">
+        </audio>
+        <div class="playPauseButton">
+        <a href="game.html"><button class="choose"id="newGame">New Game</button></a>
+        <button id ="playPauseButton" onclick="playPause()">🔉</button>
+        <button id ="r2">🚩Rulse</button>  
+        <div class="popR">
+            <button id="close">&times;</button>
+            <h2>💣 Rulse💣</h2>
+             The purpose of the game is to open all the cells of the board which do not contain a bomb. <br>You lose if you set off a bomb cell.<br>
+    
+                Every non-bomb cell you open will tell you the total number of bombs in the eight neighboring cells.<br> Once you are sure that a cell contains a bomb, you can right-click to put a flag it on it as a reminder. <br>Once you have flagged all the bombs around an open cell, you can quickly open the remaining non-bomb cells by shift-clicking on the cell.
+                
+                <br>To start a new game (abandoning the current one), just click on the yellow face button.</p>
+        </div>
+    </div>
+<script>
+
+        document.querySelector("#close1").addEventListener("click",
+function(){
+   document.querySelector(".popR1").style.display = "none";
+}
+);
+document.querySelector("#r").addEventListener("click",
+function(){
+   document.querySelector(".popR1").style.display = "block";
+}
+);
+                    // setTimeout(
+                    // function open(event){
+                    //     flag2=0;
+                    //     if(flag == 0)
+                    //     document.querySelector(".popR1").style.display = "block";
+                    // },2000)
+//                     function show(){
+//                         setTimeout(
+//                     function open(event){
+//                         flag2=0;
+//                         if(flag == 0)
+//                         document.querySelector(".popR1").style.display = "block";
+//                     },2000)
+//                     }
+
+
+    window.addEventListener("load",document.querySelector(".popup").style.display = "block"); 
+</script>
+</body>
+</html>
